@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Ric3D | Bem-vindo!</title>
 </head>
-<body>
+<body class="no-animations">
     <header class="topo">
         <section class="nav_topo">
             <div class="conteudo1">
@@ -34,7 +34,6 @@
             </div>
         </div>
     </main>
-</body>
     <div class="galeria" id="galeria">
         <section class="gallery-section">
             <div class="container">
@@ -49,7 +48,6 @@
                             <a href="https://www.instagram.com/ric3dpt/" class="gallery-btn">Encomenda já!</a>
                         </div>
                     </div>
-
                     <div class="gallery-item">
                         <img src="imgs/projeto2.jpg" alt="Projeto de impressão 3D">
                         <div class="gallery-overlay">
@@ -113,5 +111,42 @@
             </section>
         </div>
     </div>
+    <script>
+        let lastScrollPosition = 0;
+let ticking = false;
+
+function handleScroll() {
+    document.body.classList.add('no-animations');
+    if (!ticking) {
+        window.requestAnimationFrame(function() {
+            document.body.classList.remove('no-animations');
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
+
+document.querySelectorAll('.gallery-item, .hero, .step').forEach(el => {
+    el.style.transform = 'translateZ(0)';
+});
+
+let fps = 0;
+let lastFrameTime = performance.now();
+
+function checkFPS() {
+    const now = performance.now();
+    const delta = now - lastFrameTime;
+    lastFrameTime = now;
+    fps = Math.round(1000 / delta);
+    
+    if (fps < 45) {
+        console.warn(`Low FPS: ${fps}. Check performance bottlenecks.`);
+    }
+    
+    requestAnimationFrame(checkFPS);
+}
+    </script>
 </body>
 </html>
