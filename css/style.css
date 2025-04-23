@@ -371,7 +371,7 @@ body {
 
 .fundo_sobre {
     background: 
-        url('../imgs/fundo2.jpg') center/cover no-repeat,
+        url('../imgs/fundo.jpg') center/cover no-repeat,
         linear-gradient(to bottom, rgba(0, 31, 66, 0.5), rgba(0, 31, 66, 0.5));
 }
 
