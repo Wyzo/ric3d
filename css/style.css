@@ -103,7 +103,7 @@ body {
     position: relative;
     background: 
         linear-gradient(rgba(0, 31, 66, 0.5)),
-        url('/ric3d/imgs/fundo1.jpg') center/cover no-repeat;
+        url('../imgs/fundo1.jpg') center/cover no-repeat;
     margin-top: 0;
 }
 
@@ -371,7 +371,7 @@ body {
 .fundo_sobre {
     background: 
         linear-gradient(rgba(0, 31, 66, 0.63)),
-        url('/ric3d/imgs/fundo.jpg') center/cover no-repeat;
+        url('../imgs/fundo.jpg') center/cover no-repeat;
 }
 
 .how-it-works {
