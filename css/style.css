@@ -62,12 +62,23 @@ body {
     align-items: center;
 }
 
+#typing-title::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 #falar {
     background-color: #FF5B80;
     padding: 8px 20px;
     border-radius: 10px;
     color: white;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 #falar:hover {
@@ -89,6 +100,7 @@ body {
     padding: 5px 10px;
     border-radius: 10px;
     font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .nav_topo_header a:hover {
@@ -101,11 +113,16 @@ body {
     padding-top: 0;
     overflow: hidden;
     position: relative;
-    background: 
-        url('../imgs/fundo1.jpg') center/cover no-repeat,
-        linear-gradient(to bottom, rgba(0, 31, 66, 0.5), rgba(0, 31, 66, 0.5));
+    background-image: 
+    linear-gradient(to bottom, rgba(0, 20, 43, 0.664), rgba(0, 31, 66, 0.5)),
+    url('../imgs/fundo1.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-blend-mode: overlay;
     margin-top: 0;
-    min-height: 100vh; /* Adicione uma altura mínima */
+    min-height: 80vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 }
 
 .container {
@@ -124,17 +141,26 @@ body {
 }
 
 .hero-text {
-    flex: 0 0 50%;
+    flex: 0 0 70%;
     z-index: 10;
 }
 
 .hero-text h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.1;
+    line-height: 0.9;
     font-weight: 800;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
+
+.hero-text h2 {
+    font-size: clamp(1.3rem, 3vw, 4.5rem);
+    line-height: 0.9;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
 
 .hero-text p {
     font-size: 1.2rem;
@@ -370,9 +396,14 @@ body {
 }
 
 .fundo_sobre {
-    background: 
-        linear-gradient(rgba(3, 0, 19, 0.7), rgba(16, 0, 59, 0.7)), /* Overlay */
-        url('../imgs/fundo.jpg') center/cover;
+    background-image: 
+    linear-gradient(to bottom, rgba(0, 20, 43, 0.664), rgba(0, 31, 66, 0.5)),
+    url('../imgs/fundo.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-blend-mode: overlay;
+clip-path: polygon(0 0, 100% 7%, 100% 100%, 0 93%);
 }
 
 .how-it-works {
