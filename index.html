@@ -26,7 +26,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>IMPRESSÃO 3D PROFISSIONAL</h1>
+                    <h1><span id="typing-title"></span></h1>
+                    <br><h2>PROFISSIONAL</h2>
                     <p>Criamos protótipos e peças personalizadas em 3D, da modelação à impressão. 
                         Traz a tua ideia, nós tratamos do resto.</p>
                     <a href="https://www.instagram.com/ric3dpt/" class="btn">Pede o teu orçamento hoje!</a>
@@ -125,19 +126,48 @@
     </div>
     <footer class="footer-dark">
         <div class="footer-content">
-            <div class="social-links">
-                <a href="https://www.instagram.com/francisco.pduarte/" target="_blank" class="social-icon">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>@francisco.pduarte</span>
-                </a>
-                <a href="https://github.com/Wyzo" target="_blank" class="social-icon">
-                    <i class="fa-brands fa-github"></i>
-                    <span>Francisco Duarte</span>
-                </a>
-            </div>
+            <p>@ 2025 Ric3d - Todos os direitos reservados</p>
         </div>
     </footer>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const titleElement = document.getElementById('typing-title');
+    const phrases = [
+        "IMPRESSÃO 3D",
+        "MODELAÇÃO 3D"
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 120;
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isDeleting) {
+            titleElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50;
+        } else {
+            titleElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 150;
+        }
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(type, 2000);
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(type, 500);
+        } else {
+            setTimeout(type, typingSpeed);
+        }
+    }
+
+    setTimeout(type, 1000);
+});
         let lastScrollPosition = 0;
 let ticking = false;
 
